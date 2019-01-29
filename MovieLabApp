@@ -1,0 +1,55 @@
+package movieslab;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
+	public class MovieLabApp {
+	   
+		
+		
+		private static ArrayList<MovieLab> movieList = new ArrayList<>();
+
+	   public static void main(String[] args) {
+	       // TODO Auto-generated method stub
+	       Scanner scnr = new Scanner(System.in);
+	       String cont ="";
+	       String selection;
+	       MovieLab movie = new MovieLab();
+
+	       populateMovieList(movie);
+
+	       System.out.println("Welcome to the Movie List Application!");
+
+	       do {
+	           System.out.print("What category are you interested in?:" );
+	           selection = scnr.nextLine();
+
+	           for(MovieLab movie:movieList) {
+	               if(movie.getCategory().equalsIgnoreCase(selection)) {
+	                   System.out.println(movie.getTitle());
+	               }
+	           }
+
+	           System.out.print("Continue? (y/n):");
+	           cont = scnr.nextLine();
+	       }while(!cont.equalsIgnoreCase("n"));
+	       System.out.println("Goodbye");
+	       scnr.close();
+	   }
+
+	   public static void populateMovieList(MovieLab movie) {
+	       movieList.add(new MovieLab("Kill Bill", "scifi"));
+	       movieList.add(new MovieLab("Lion King", "animated"));
+	       movieList.add(new MovieLab("Black Panther", "drama"));
+	       movieList.add(new MovieLab("Chucky", "horror"));
+	       movieList.add(new MovieLab("Black Mirror", "Scifi"));
+	       movieList.add(new MovieLab("Lola & Stich", "animated"));
+	       movieList.add(new MovieLab("Avengers", "drama"));
+	       movieList.add(new MovieLab("SuperBad", "comedy"));
+	       movieList.add(new MovieLab("Escape Room", "scifi"));
+	       movieList.add(new MovieLab("Zootopia", "animated"));
+	   }
+
+	}
+	
+	
